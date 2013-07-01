@@ -2,13 +2,13 @@
 # mostly playing with shell scripting
 
 # a list of directories to look in for
-MY_DIRECTORIES="*"
+my_directories="*"
 
-for i in $MY_DIRECTORIES
+for i in $my_directories
     do
         # check if there are .gz files in the folder.
-        ls -1 $i/*.gz
-        if [ $? -eq 1 ]
+        count=`ls -1 $1/*.gz 2>/dev/null | wc -l`
+        if [ $count == 0 ]
         then
             echo ".gz files not found in $i"
             continue
